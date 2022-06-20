@@ -15,7 +15,8 @@ namespace HackerRankSolvings.Challenges
             return new List<BaseChallenge>()
             {
                 new SalesByMatch(),
-                new CountingValleys()
+                new CountingValleys(),
+                new RepeatedString()
             };
         }
     }
