@@ -84,7 +84,7 @@ Sample Output
                 {
                     seaLevelIndicator = CalculateNewStepSeaLevel(newStep, previousStepSeaLevel: seaLevelIndicator);
 
-                    if (IsJustStepUpToTheSeaLevelGround(newStepSeaLevel: seaLevelIndicator, newStep))
+                    if (IsJustStepUpToZeroSeaLevelGround(newStepSeaLevel: seaLevelIndicator, newStep))
                     {
                         traversedValleysCounter += 1;
                     }
@@ -103,7 +103,7 @@ Sample Output
                 };
             }
 
-            private static bool IsJustStepUpToTheSeaLevelGround(int newStepSeaLevel, char newStep)
+            private static bool IsJustStepUpToZeroSeaLevelGround(int newStepSeaLevel, char newStep)
             {
                 return newStepSeaLevel == 0 && newStep == StepUp;
             }
