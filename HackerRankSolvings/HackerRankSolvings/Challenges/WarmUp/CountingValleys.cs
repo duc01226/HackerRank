@@ -78,13 +78,13 @@ Sample Output
             public static int CountingValleys(int stepsCount, string path)
             {
                 var traversedValleysCounter = 0;
-                var currentSeaLevelIndicator = 0;
+                var seaLevelIndicator = 0;
 
                 foreach (var newStep in path)
                 {
-                    currentSeaLevelIndicator = CalculateNewStepSeaLevel(newStep, currentSeaLevel: currentSeaLevelIndicator);
+                    seaLevelIndicator = CalculateNewStepSeaLevel(newStep, previousStepSeaLevel: seaLevelIndicator);
 
-                    if (IsJustStepUpToTheSeaLevelGround(currentSeaLevelIndicator, newStep))
+                    if (IsJustStepUpToTheSeaLevelGround(newStepSeaLevel: seaLevelIndicator, newStep))
                     {
                         traversedValleysCounter += 1;
                     }
@@ -93,19 +93,19 @@ Sample Output
                 return traversedValleysCounter;
             }
 
-            private static int CalculateNewStepSeaLevel(char newStep, int currentSeaLevel)
+            private static int CalculateNewStepSeaLevel(char newStep, int previousStepSeaLevel)
             {
                 return newStep switch
                 {
-                    StepUp => currentSeaLevel - 1,
-                    StepDown => currentSeaLevel + 1,
+                    StepUp => previousStepSeaLevel - 1,
+                    StepDown => previousStepSeaLevel + 1,
                     _ => throw new ArgumentException($"Step {newStep} is invalid. Must be {StepUp} or {StepDown}")
                 };
             }
 
-            private static bool IsJustStepUpToTheSeaLevelGround(int currentSeaLevelIndicator, char newStep)
+            private static bool IsJustStepUpToTheSeaLevelGround(int newStepSeaLevel, char newStep)
             {
-                return currentSeaLevelIndicator == 0 && newStep == StepUp;
+                return newStepSeaLevel == 0 && newStep == StepUp;
             }
         }
     }
