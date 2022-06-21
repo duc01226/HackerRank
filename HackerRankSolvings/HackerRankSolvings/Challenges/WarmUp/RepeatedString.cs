@@ -51,7 +51,7 @@ The first n=10 letters of the infinite string are abaabaabaa. Because there are 
             Console.WriteLine();
 
             Console.WriteLine("Input a string to repeat:");
-            var s = Console.ReadLine()?.Trim();
+            var s = Console.ReadLine()?.Trim() ?? "";
 
             Console.WriteLine("\nInput the number of characters to consider:");
             long n = Convert.ToInt64(Console.ReadLine()?.Trim());
