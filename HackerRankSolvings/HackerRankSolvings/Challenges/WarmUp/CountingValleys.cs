@@ -52,10 +52,10 @@ Sample Output
             Console.WriteLine();
 
             Console.WriteLine("Input the number of steps:");
-            int steps = Convert.ToInt32(Console.ReadLine().Trim());
+            int steps = Convert.ToInt32(Console.ReadLine()?.Trim());
 
             Console.WriteLine("\nInput the path (Example: UDDDUDUU):");
-            string path = Console.ReadLine();
+            var path = Console.ReadLine() ?? "";
 
             int result = Result.CountingValleys(steps, path);
 

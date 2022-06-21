@@ -39,10 +39,10 @@ The second line contains n space-separated integers, ar[i], the colors of the so
             Console.WriteLine();
 
             Console.WriteLine("Input the number of socks in the pile:");
-            int n = Convert.ToInt32(Console.ReadLine().Trim());
+            int n = Convert.ToInt32(Console.ReadLine()?.Trim());
 
             Console.WriteLine("\nInput the colors of each sock (Example: 1 2 2 1 3 4 3):");
-            List<int> ar = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arTemp => Convert.ToInt32(arTemp)).ToList();
+            var ar = Console.ReadLine()?.Trim().Split(' ').ToList().Select(arTemp => Convert.ToInt32(arTemp)).ToList() ?? new List<int>();
 
             int result = Result.SockMerchant(n, ar);
 
